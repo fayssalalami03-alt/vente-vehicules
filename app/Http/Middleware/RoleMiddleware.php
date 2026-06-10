@@ -8,14 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next,$role)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-
         if (Auth::user()->role !== $role) {
-            abort(403, 'Unauthorized');
+           return redirect()->route("annonces.index")->with("message", "tu es pas autrise");
         }
 
         return $next($request);

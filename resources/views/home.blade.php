@@ -38,6 +38,7 @@
 
             <h2> {{ Auth::user()->name }}</h2>
             <p>{{ Auth::user()->email }}</p>
+            <p>{{ Auth::user()->phone }}</p>
 
         </div>
 
@@ -60,22 +61,18 @@
 
             <div class="col-md-4">
                 <div class="card p-3 shadow-sm">
-                    <h3>{{ $likesCount ?? 0 }}</h3>
-                    <p>Likes</p>
+                    <a href="{{ route('message.inbox') }}" class="btn btn-info">
+                        Mes messages
+                    </a>
+                    <a href="{{ route('annonces.index') }}" class="btn btn-secondary">
+                        Anonnce
+                    </a>
                 </div>
             </div>
 
         </div>
 
 
-        <div class="mb-4 text-end">
-            <a href="{{ route('message.inbox') }}" class="btn btn-info">
-                Mes messages
-            </a>
-            <a href="{{ route('annonces.index') }}" class="btn btn-secondary">
-                Anonnce
-            </a>
-        </div>
 
 
         <h4 class="mb-3"> Mes annonces</h4>

@@ -92,7 +92,7 @@
                          
                             <div class="col-md-6 mb-3">
                                 <label>Année</label>
-                                <input type="number" name="annee" class="form-control" required>
+                                <input type="number" name="annee" placeholder="Annee de prrmiere travail en marocen"  class="form-control" required>
                             </div>
 
 

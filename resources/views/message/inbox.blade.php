@@ -51,7 +51,7 @@
         Retour
     </a>
     <a href="{{ route('messages.sent') }}" class="btn btn-secondary">
-       Mesmessage
+       message envoye
     </a>
 
 </body>

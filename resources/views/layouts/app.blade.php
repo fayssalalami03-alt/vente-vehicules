@@ -48,43 +48,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="nav">
+            <div class="collapse  navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-center gap-2 flex-row">
 
-                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <form method="GET" action="{{ route('annonces.index') }}" class="d-flex align-items-center  gap-2">
 
-                    @if (!request()->routeIs('annonces.index'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('annonces.index') }}">Annonces</a>
-                        </li>
-                    @else
-                        <form method="GET" action="{{ route('annonces.index') }}" class="row g-2 mb-3">
+                        <input type="text" name="search" value="{{ request('search') }}"
+                            class="form-control form-control-sm" placeholder="Rechercher...">
 
-                            <div class="col-md-6">
-                                <input type="text" name="search" value="{{ request('search') }}" class="form-control"
-                                    placeholder="Rechercher une voiture...">
-                            </div>
+                        <select name="category" class="form-select form-select-sm">
+                            <option value="">Catégories</option>
+                            <option value="1">Voiture</option>
+                            <option value="2">Moto</option>
+                        </select>
 
-                            <div class="col-md-4">
-                                <select name="category" class="form-select">
-                                    <option value="">catégories</option>
-                                    <option value="1">Voiture</option>
-                                    <option value="2">Moto</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-2">
-                                <button class="btn btn-primary w-100">
-                                   RECH
-                                </button>
-                            </div>
-
-                        </form>
-                    @endif
-
-
-
- 
-
+                        <button class="btn btn-primary  btn-sm">
+                            RECH
+                        </button>
+                    </form>
 
                     @auth
                         @if(Auth::user()->role == "admin")
@@ -95,16 +76,18 @@
                             </li>
                         @endif
 
-
+                       
                         <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('logout') }}" class="d-inline">
                                 @csrf
-                                <button class="btn btn-danger btn-sm">
+                                <button class="btn btn-danger btn-sm ms-2">
                                     Logout
                                 </button>
                             </form>
                         </li>
+
                     @else
+                       
                         <li class="nav-item">
                             <a class="btn btn-primary btn-sm ms-2" href="{{ route('login') }}">
                                 Login

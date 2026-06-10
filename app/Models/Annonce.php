@@ -7,18 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Annonce extends Model
 {
-    /** @use HasFactory<\Database\Factories\AnnonceFactory> */
+    /** @use HasFactory */
          use HasFactory;
-     protected $fillable = [
-         'title',
-         'description',
-         'marque',
-         'modele',
-         'annee',
-         'prix',
-         'ville',
-         'category_id',
-         'user_id',
+     protected $fillable = ['title','description', 'marque','modele',
+     'annee','prix','ville','category_id','user_id',
      ];
      
     public function user()

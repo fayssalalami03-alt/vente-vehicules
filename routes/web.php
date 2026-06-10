@@ -27,8 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/message', [MessageController::class, 'store'])->name('message.store');
     Route::get('/messages/sent', [MessageController::class, 'sent'])
     ->name('messages.sent');
-    Route::get('/messages/{user}', [MessageController::class, 'show'])->name('messages.show');
-
     Route::get('/inbox', [MessageController::class, 'inbox'])->name('message.inbox');
 });
 

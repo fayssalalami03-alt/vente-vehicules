@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
-use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,18 +52,7 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      */
-   public function show(User $user)
-   {
-    $messages = Message::where(function ($q) use ($user) {
-        $q->where('sender_id', Auth::id())
-          ->where('receiver_id', $user->id);
-    })->orWhere(function ($q) use ($user) {
-        $q->where('sender_id', $user->id)
-          ->where('receiver_id', Auth::id());
-    })->get();
-
-    return view('message.show', compact('messages', 'user'));
-   }
+ 
    public function sent()
 {
     $messages = Message::where('sender_id', Auth::id())
@@ -72,9 +61,6 @@ class MessageController extends Controller
 
     return view('message.sent', compact('messages'));
 }
-    /**
-     * Show the form for editing the specified resource.
-     */
- 
+  
   
 }

@@ -69,11 +69,7 @@
                     </button>
                 </form>
 
-                <p class="text-center mt-3">
-                    Don't have account?
-                    <a href="/register">Register</a>
-                </p>
-
+              
             </div>
         </div>
 
