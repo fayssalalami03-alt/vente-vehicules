@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,43 @@
     <title>Document</title>
     @vite("resources/js/app.js")
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+        <div class="container">
 
-        <a class="navbar-brand fw-bold" href="/">
-            🚗 Vehicle-vente
-        </a>
+            <a class="navbar-brand fw-bold" href="">
+                Vehicle-vente
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navVisitor">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navVisitor">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navVisitor">
+            <div class="collapse navbar-collapse" id="navVisitor">
 
-            <ul class="navbar-nav ms-auto align-items-center">
-
-       
-                <li class="nav-item ms-2">
-                    <a class="btn btn-outline-light btn-sm" href="{{ route('annonces.index') }}">
-                        Anonnce
-                    </a>
-                </li>
-
-                <li class="nav-item ms-2">
-                    <a class="btn btn-primary btn-sm" href="{{ route("login") }}">
-                        Connexion
-                    </a>
-                </li>
+                <ul class="navbar-nav ms-auto align-items-center">
 
 
-            </ul>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-light btn-sm" href="{{ route('annonces.index') }}">
+                            Anonnce
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary btn-sm" href="{{ route("login") }}">
+                            Connexion
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
 
         </div>
-
-    </div>
-</nav>
+    </nav>
 
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -58,20 +60,29 @@
 
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
-                            <input type="text" name="name" placeholder="Enter your name" class="form-control"
+                            <input type="text" name="name"  placeholder="Entrez votre nom" class="form-control"
                                 value="{{ old('name') }}" required>
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Prenom</label>
-                            <input type="text" name="prenom" placeholder="Enter your prenom" class="form-control"
+                            <input type="text" name="prenom" placeholder="Entrez votre prénom" class="form-control"
                                 value="{{ old('prenom') }}" required>
+                            @error('prenom')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
 
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" name="email" placeholder="example@gmail.com" class="form-control"
+                            <input type="email" name="email"  placeholder="exemple@gmail.com" class="form-control"
                                 value="{{ old('email') }}" required>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
 
@@ -79,13 +90,19 @@
                             <label class="form-label">Phone</label>
                             <input type="text" name="phone" placeholder="06XXXXXXXX" class="form-control"
                                 value="{{ old('phone') }}">
+                            @error('phone')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
 
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" name="password" placeholder="Enter your password" class="form-control"
-                                required>
+                            <input type="password" name="password" placeholder="Entrez votre mot de passe"
+                                class="form-control" required>
+                            @error('password')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
 
@@ -94,16 +111,11 @@
                         </button>
 
                     </form>
-
-                    <p class="text-center mt-3">
-                        si tu as déjà un compte ?
-                        <a href="/login">Login</a>
-                    </p>
-
                 </div>
             </div>
 
         </div>
     </div>
 </body>
+
 </html>

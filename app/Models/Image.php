@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    /** @use HasFactory<\Database\Factories\ImageFactory> */
+    
     use HasFactory;
   protected $fillable = ['annonce_id', 'image_path'];
+  public function   annonce(){
+    return $this->belongsTo(Annonce::class);
+  }
 }

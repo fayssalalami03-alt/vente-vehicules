@@ -14,11 +14,9 @@ class UserController extends Controller
     $annonces = Annonce::with('images')
         ->where('user_id', $user->id)
         ->get();
-
-    return view('home', [
-        'annonces' => $annonces,
-        'annoncesCount' => $annonces->count(),
-        
-    ]);
+        $ToutAnonnce=Annonce::count();
+        $annoncesCount= $annonces->count();
+       
+    return view('home',compact("annonces","ToutAnonnce","annoncesCount"));
 }
 }
