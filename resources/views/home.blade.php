@@ -54,8 +54,9 @@
 
             <div class="col-md-4">
                 <div class="card p-3 shadow-sm">
-                    <h3>{{ $messagesCount ?? 0 }}</h3>
-                    <p>Messages</p>
+                     <a href="{{ route('annonces.index') }}" class="btn btn-secondary">
+                        Anonnce
+                        </a>
                 </div>
             </div>
 
@@ -64,9 +65,7 @@
                     <a href="{{ route('message.inbox') }}" class="btn btn-info">
                         Mes messages
                     </a>
-                    <a href="{{ route('annonces.index') }}" class="btn btn-secondary">
-                        Anonnce
-                    </a>
+
                 </div>
             </div>
 

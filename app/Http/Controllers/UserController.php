@@ -18,7 +18,7 @@ class UserController extends Controller
     return view('home', [
         'annonces' => $annonces,
         'annoncesCount' => $annonces->count(),
-        'messagesCount' => 0,
+        
     ]);
 }
 }
