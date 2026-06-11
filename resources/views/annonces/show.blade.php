@@ -6,7 +6,7 @@
 
 <div class="row">
 
-    {{-- IMAGE --}}
+  
     <div class="col-md-6 mb-3">
         <div class="card shadow-sm border-0">
 

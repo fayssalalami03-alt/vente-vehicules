@@ -14,7 +14,7 @@ class HomeController extends Controller
         'annoncesCount' =>Annonce::count(),
         'usersCount' => User::count(),
         'categoriesCount' => Category::count(),
-        'latestAnnonces' => Annonce::with('images')->latest()->take(6)->get(),
+        'latestAnnonces' => Annonce::with('images')->get(),
 
         ]);
     }

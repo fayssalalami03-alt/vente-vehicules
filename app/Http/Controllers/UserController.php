@@ -13,14 +13,12 @@ class UserController extends Controller
 
     $annonces = Annonce::with('images')
         ->where('user_id', $user->id)
-        ->latest()
         ->get();
 
     return view('home', [
         'annonces' => $annonces,
         'annoncesCount' => $annonces->count(),
         'messagesCount' => 0,
-        'likesCount' => 0,
     ]);
 }
 }

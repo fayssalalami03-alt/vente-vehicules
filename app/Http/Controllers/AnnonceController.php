@@ -98,9 +98,6 @@ public function store(Request $request)
     public function edit(string $id)
     {
         $annonce = Annonce::with('images')->findorFail($id);
-         if (Auth::user()->role !== 'admin' && $annonce->user_id !== Auth::id()) {
-        return redirect()->route("annonce.index")->wtih("message","tu es pas autorise pour la modification");
-    }
         $categories = Category::all();
         return view('annonces.edit', compact('annonce', 'categories'));
     }
@@ -113,15 +110,7 @@ public function store(Request $request)
 public function update(Request $request, string $id)
 {
     $annonce = Annonce::with('images')->findOrFail($id);
-
-    
-    if (Auth::user()->role !== 'admin' && $annonce->user_id !== Auth::id()) {
-        return redirect()
-            ->route('annonces.index')
-            ->with('message', "Tu n'es pas autorisé à modifier cette annonce");
-    }
-
-    
+  
     $annonce->update([
         'title' => $request->title,
         'description' => $request->description,
@@ -139,7 +128,7 @@ public function update(Request $request, string $id)
         
         foreach ($annonce->images as $img) {
             Storage::disk('public')->delete($img->image_path);
-            $img->delete();
+            
         }
 
         foreach ($request->file('images') as $image) {
@@ -162,9 +151,6 @@ public function update(Request $request, string $id)
     public function destroy(string $id)
     {
         $annonce = Annonce::findorFail($id);
-                  if (Auth::user()->role !== 'admin' && $annonce->user_id !== Auth::id()) {
-        return redirect()->route("annonce.index")->wtih("message","tu es pas autorise pour la suppretion");
-    }
         $annonce->delete();
         return redirect()->route('annonces.index')->with('success', 'Annonce supprimée avec succès.');
     }
